@@ -1,0 +1,80 @@
+/* Estilos generales */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Estilos del formulario */
+#personasForm {
+    margin-bottom: 20px;
+}
+
+#personasForm div {
+    margin-bottom: 10px;
+}
+
+#personasForm label {
+    display: inline-block;
+    width: 150px;
+}
+
+#personasForm input[type ="text"],
+#personasForm input[type ="email"],
+#personasForm input[type ="number"],
+#personasForm input[type ="password"],
+#personasForm select {
+    width: 200px;
+    padding: 5px;
+}
+
+/* Estilos de la tabla */
+#tablaPersonas {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+#tablaPersonas th, 
+#tablaPersonas td {
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 8px;
+}
+
+#tablaPersonas th {
+    background-color: #f2f2f2;
+}
+
+#previewImagen {
+    max-width: 200px;
+    display: none;
+}
+
+/* Estilos de los botones */
+.btn-editar {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.btn-eliminar {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* Estilos para las imagenes en la tabla */
+#tablaPersonas img {
+    max-width: 100px;
+    max-height: 100px;
+}
+

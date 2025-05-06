@@ -216,3 +216,30 @@ function limpiarFormulario() {
     previewImagen.style.display = 'none';
 }
 
+function manejarImagen(e) {
+    const file = e.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            previewImagen.src = e.target.result;
+            previewImagen.style.display = 'block';
+        }
+        reader.readAsDataURL(file); //leer la imagen como una URL
+    } else {
+        previewImagen.src = '';
+        previewImagen.style.display = 'none';
+    }
+}
+
+// Convierte imagen a base64 para enviarla al backend
+function convertirImagenABase64(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+            const base64 = reader.result.split(',')[1]//Elimina el prefijo del data URL
+            resolve(base64);
+        };
+        reader.onerror = error => reject(error);
+    })
+}
