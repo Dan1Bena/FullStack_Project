@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD de Personas e Imágenes</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+
+<body>
+
+    <!-- Primera Forma -->
+
+    <h1>Gestión de Personas</h1>
+
+    <form id="personasForm">
+        <!-- Formulario para crear o editar personas -->
+        <input type="hidden" id="id_persona">
+        <!-- Campo oculto para almacenar el ID -->
+
+        <!-- Contenedor <div> utilizado para agrupar el Label y el input lo que permite aplicar márgenes, estilos o estructuras en bloque facilmente.
+             -->
+
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" required placeholder="Ingresa tu nombre">
+        </div>
+
+        <div>
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" required placeholder="Ingresa tu apellido">
+        </div>
+
+        <div>
+            <label for="tipo_identificacion">Tipo de documento:</label>
+            <select id="tipo_identificacion" required>
+                <option value="CC">Cédula de Ciudadanía</option>
+                <option value="TI">Tarjeta de Identidad</option>
+                <option value="CE">Cédula de Extranjeria</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="nuip">Número de Identidad:</label>
+            <input type="number" id="nuip" required>
+        </div>
+
+        <div>
+            <label for="email">Correo Electronico:</label>
+            <input type="email" id="email" required>
+        </div>
+
+        <div>
+            <label for="clave">Contraseña: </label>
+            <input type="password" id="clave" required>
+        </div>
+
+        <div>
+            <label for="salario">Salario</label>
+            <input type="number" id="salario" required>
+        </div>
+
+        <div>
+            <label for="activo">Activo:</label>
+            <input type="checkbox" id="activo">
+        </div>
+
+        <div>
+            <label for="imagen">Imagen:</label>
+            <input type="file" id="imagen" accept="image/*">
+            <img id="previewImagen" style="max-width: 200px; display: none;">
+        </div>
+
+        <button type="submit" id="btnGuardar">Guardar</button>
+        <button type="button" id="btnCancelar">Cancelar</button>
+    </form>
+
+
+    <!-- Tabla para mostrar las personas -->
+    <table id="tablaPersonas" style="width: 100%; margin-top: 20px; border-collapse: collapse;">
+        <thead>
+            <tr>
+                <th style="border: 1px solid #ddd; text-align: center; padding: 8px;">ID</th>
+                <th style="border: 1px solid #ddd; text-align: center; padding: 8px;">Nombre</th>
+                <th style="border: 1px solid #ddd; text-align: center; padding: 8px;">Apellido</th>
+                <th style="border: 1px solid #ddd; text-align: center; padding: 8px;">Email</th>
+                <th style="border: 1px solid #ddd; text-align: center; padding: 8px;">Imagen</th>
+                <th style="border: 1px solid #ddd; text-align: center; padding: 8px;">Acciones</th>
+            </tr>
+        </thead>
+        <!-- <thead> defina la cabecera de la tabla la cual describir el contenido de cada columna. 
+            Cada <th> representa un encabezado de columna, con estilos aplicados.
+            -->
+
+        <tbody id="tablaPersonasBody">
+            <!-- Los datos se cargan dinamicamente aqui -->
+        </tbody>
+    </table>
+
+    <script src="index.js"></script>
+    <!-- Inclusion del archivo de JavaScript externo el cual contiene la logica del CRUD, asi como la interaccion con el formulario -->
+</body>
+
+</html>

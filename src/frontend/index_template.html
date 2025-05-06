@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crud de personas e imagenes</title>
+</head>
+
+<body>
+    <h1>Gestion de personas</h1>
+
+    <form id="personasForm">
+        <input type="hidden" id="id_persona">
+
+        <div>
+            <label>
+                Nombre:
+                <input type="text" id=nombre"" required>
+            </label>
+        </div>
+
+        <div>
+            <label>
+                Apellido:
+                <input type="text" id="apellido" required>
+            </label>
+        </div>
+
+        <div>
+            <label>
+                Tipo de identificación:
+                <select id="tipo_identificacion" required>
+                    <option value="CC">Cédula de ciudadania</option>
+                    <option value="TI">Tarjeta de identidad</option>
+                    <option value="CE">Cédula de extranjeria</option>
+                </select>
+            </label>
+        </div>
+
+        <div>
+            <label>
+                Número de documento:
+                <input type="number" id="nuip" required>
+            </label>
+        </div>
+
+        <div>
+            <label>
+                Email:
+                <input type="email" id="email" required>
+            </label>
+        </div>
+
+        <div>
+            <label>
+                Contraseña:
+                <input type="password" id="clave">
+            </label>
+        </div>
+
+        <div>
+            Salario:
+            <input type="number" id="salario" step="0.01" required>
+        </div>
+
+        <div>
+            <label>
+                Activo:
+                <input type="checkbox" id="activo">
+            </label>
+        </div>
+
+        <!-- Seccion para el manejo de imagenes -->
+        <div>
+            <label for="imagen">Imagen:</label>
+            <input type="file" id="imagen" accept="image/*">
+            <img id="previewImagen" style="max-width: 200px; display: none;">
+        </div>
+
+        <button type="submit" id="btnGuardar">Guardar</button>
+        <button type="button" id="btnCancelar">Cancelar</button>
+    </form>
+
+    <!-- Tabla para mostrar las personas -->
+    <table id="tablaPersonas" style="width: 100%; margin-top: 25px; border-collapse: collapse;">
+        <thead>
+            <tr>
+                <th style="border: 1px solid #ddd; text-align: center; padding: 8px;">ID</th>
+                <th style="border: 1px solid #ddd; text-align: center; padding: 8px;">Nombre</th>
+                <th style="border: 1px solid #ddd; text-align: center; padding: 8px;">Apellido</th>
+                <th style="border: 1px solid #ddd; text-align: center; padding: 8px;">Email</th>
+                <th style="border: 1px solid #ddd; text-align: center; padding: 8px;">Imagen</th>
+                <th style="border: 1px solid #ddd; text-align: center; padding: 8px;">Acciones</th>
+            </tr>
+        </thead>
+
+        <tbody id="tablaPersonasBody">
+            <!-- Los datos se cargarán dinamicamente aqui -->
+        </tbody>
+    </table>
+
+    <template id="template">
+        <tr>
+            <th style="border: 1px solid #ddd; text-align: center; padding: 8px;"></th>
+            <th style="border: 1px solid #ddd; text-align: center; padding: 8px;"></th>
+            <th style="border: 1px solid #ddd; text-align: center; padding: 8px;"></th>
+            <th style="border: 1px solid #ddd; text-align: center; padding: 8px;"></th>
+            <th style="border: 1px solid #ddd; text-align: center; padding: 8px;"></th>
+            <th style="border: 1px solid #ddd; text-align: center; padding: 8px;">
+                <button class="btn-editar">Editar</button>
+                <button class="btn-eliminar">Eliminar</button>
+            </th>
+        </tr>
+    </template>
+    <!-- 
+        El Elemento <Template> actuá como una plantilla HTML reutilizable.
+
+        Esta define una fila <tr> con celdas vacias <th> la cuales serán rellenadas dinámicamente con datos de personas desde JavaScript.
+
+        Esta tecnica permite cllonaarr lla ffila cuaanndo necesita mostrar nuevos reggistross  sin tener que escribir el HTML desde cero cada vez.
+
+        Las ultimas celdas incluyen botones "Editar" y "Eliminar" con clases especificas para identificar y manejar llos eventos desde JavaScript.
+      -->
+
+    <script src="index_template.js"></script>
+</body>
+
+</html>
