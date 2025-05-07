@@ -210,7 +210,7 @@ async function editarPersona(id) {
 }
 
 function limpiarFormulario() {
-    personasForm.requestFullscreen();
+    personasForm.reset();
     document.getElementById('id_persona').value = '';
     previewImagen.src = '';
     previewImagen.style.display = 'none';
